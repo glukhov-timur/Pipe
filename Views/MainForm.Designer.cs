@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PipesDGW = new System.Windows.Forms.DataGridView();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsDefective = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,9 +50,14 @@
             this.NonDefectiveCountLabel = new System.Windows.Forms.Label();
             this.DefectiveCountLabel = new System.Windows.Forms.Label();
             this.TotalWeightLabel = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.UpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PipesDGW)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PipesDGW
@@ -76,6 +82,7 @@
             this.PipesDGW.RowHeadersVisible = false;
             this.PipesDGW.RowHeadersWidth = 49;
             this.PipesDGW.RowTemplate.Height = 24;
+            this.PipesDGW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PipesDGW.Size = new System.Drawing.Size(934, 422);
             this.PipesDGW.TabIndex = 0;
             this.PipesDGW.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.PipesDGW_RowPrePaint);
@@ -257,6 +264,33 @@
             this.TotalWeightLabel.TabIndex = 6;
             this.TotalWeightLabel.Text = "...";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(19, 19);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DeleteToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.UpdateToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(148, 58);
+            // 
+            // DeleteToolStripMenuItem
+            // 
+            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.DeleteToolStripMenuItem.Text = "Удалить";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
+            // 
+            // UpdateToolStripMenuItem
+            // 
+            this.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem";
+            this.UpdateToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.UpdateToolStripMenuItem.Text = "Изменить";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -276,6 +310,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +339,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label TotalWeightLabel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem UpdateToolStripMenuItem;
     }
 }

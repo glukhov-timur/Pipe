@@ -14,7 +14,7 @@ namespace Pipe.Models.Db
         public DbSet<Steel> Steels { get; set; }
         public PipeContext()
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

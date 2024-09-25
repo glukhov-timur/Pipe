@@ -10,6 +10,9 @@ namespace Pipe.Views
     internal interface IMainForm
     {
         BindingSource PipesBindingSource { get; set; }
+
+        event EventHandler DeletePipe;
+
         int TotalCount { set; }
         int NonDefectiveCount { set; }
         int DefectiveCount { set; }

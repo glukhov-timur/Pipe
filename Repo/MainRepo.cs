@@ -13,6 +13,7 @@ namespace Pipe.Repo
     {
         Task<IEnumerable<PipeModel>> GetAllPipesAsync();
         IEnumerable<PipeDTO> GetAllPipes();
+        void DeletePipe(long id);
     }
 
     public class MainRepo : IMainRepo
@@ -45,5 +46,18 @@ namespace Pipe.Repo
                 return allPipes;
             }
         }
+
+        public void DeletePipe(long id)
+        {
+            using (var db = new PipeContext())
+            {
+                var pipe = new PipeModel { Id = id };
+                db.Pipes.Attach(pipe);
+                db.Pipes.Remove(pipe);
+                db.SaveChanges();
+            }            
+        }
+
+
     }
 }

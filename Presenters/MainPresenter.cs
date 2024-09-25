@@ -1,4 +1,5 @@
-﻿using Pipe.Repo;
+﻿using Pipe.DTO;
+using Pipe.Repo;
 using Pipe.Views;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,15 @@ namespace Pipe.Presenters
             _pipesBindingSource = new BindingSource();
             _mainForm.PipesBindingSource = _pipesBindingSource;
 
+            _mainForm.DeletePipe += DeleteSelectedPipe;
+
+            LoadData();
+        }
+
+        private void DeleteSelectedPipe(object sender, EventArgs e)
+        {
+            var selectedPipeId = ((PipeDTO)_pipesBindingSource.Current).PipeId;
+            _mainRepo.DeletePipe(selectedPipeId);
             LoadData();
         }
 

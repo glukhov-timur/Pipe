@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pipe.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace Pipe.Views
 {
     public partial class MainForm : Form, IMainForm
     {
+        public event EventHandler DeletePipe;
+
         #region properties
         private BindingSource _pipesBindingSource;
         public BindingSource PipesBindingSource
@@ -36,8 +39,21 @@ namespace Pipe.Views
         public MainForm()
         {
             InitializeComponent();
+            Init();
+            BindLocalEvents();
         }
 
+        private void Init()
+        {
+            PipesDGW.ContextMenuStrip = contextMenuStrip1;
+        }
+        private void BindLocalEvents()
+        {
+            DeleteToolStripMenuItem.Click += delegate { DeletePipe?.Invoke(this, EventArgs.Empty); };
+            //ExitToolStripMenuItem.Click += delegate { Application.Exit(); };
+            //PlanFactToolStripMenuItem.Click += PlanFactToolStripMenuItem_Click;
+            //PlanToolStripMenuItem.Click += PlanToolStripMenuItem_Click;
+        }
         private void PipesDGW_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             DataGridView grd = sender as DataGridView;
@@ -47,5 +63,6 @@ namespace Pipe.Views
             }
 
         }
+
     }
 }
