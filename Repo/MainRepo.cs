@@ -11,20 +11,13 @@ namespace Pipe.Repo
 {
     public interface IMainRepo
     {
-        Task<IEnumerable<PipeModel>> GetAllPipesAsync();
         IEnumerable<PipeDTO> GetAllPipes();
         void DeletePipe(long id);
+        IEnumerable<Steel> GetAllSteels();
     }
 
     public class MainRepo : IMainRepo
     {
-        public async Task<IEnumerable<PipeModel>> GetAllPipesAsync()
-        {
-            using (var db = new PipeContext())
-            {
-                return await db.Pipes.ToListAsync();
-            }
-        }
 
         public IEnumerable<PipeDTO> GetAllPipes()
         {
@@ -56,6 +49,14 @@ namespace Pipe.Repo
                 db.Pipes.Remove(pipe);
                 db.SaveChanges();
             }            
+        }
+
+        public IEnumerable<Steel> GetAllSteels()
+        {
+            using (var db = new PipeContext())
+            {
+                return db.Steels.ToList();
+            }
         }
 
 

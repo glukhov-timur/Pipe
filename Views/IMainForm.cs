@@ -12,10 +12,11 @@ namespace Pipe.Views
         BindingSource PipesBindingSource { get; set; }
 
         event EventHandler DeletePipe;
+        event EventHandler AddPipe;
 
         int TotalCount { set; }
         int NonDefectiveCount { set; }
         int DefectiveCount { set; }
-        int TotalWeight { set; }
+        decimal TotalWeight { set; }
     }
 }

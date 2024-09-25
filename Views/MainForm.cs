@@ -14,6 +14,7 @@ namespace Pipe.Views
     public partial class MainForm : Form, IMainForm
     {
         public event EventHandler DeletePipe;
+        public event EventHandler AddPipe;
 
         #region properties
         private BindingSource _pipesBindingSource;
@@ -33,7 +34,7 @@ namespace Pipe.Views
         public int TotalCount { set => TotalCountLabel.Text = value.ToString(); }
         public int NonDefectiveCount { set => NonDefectiveCountLabel.Text = value.ToString(); }
         public int DefectiveCount { set => DefectiveCountLabel.Text = value.ToString(); }
-        public int TotalWeight { set => TotalWeightLabel.Text = value.ToString(); }
+        public decimal TotalWeight { set => TotalWeightLabel.Text = value.ToString(); }
 
         #endregion
         public MainForm()
@@ -47,13 +48,14 @@ namespace Pipe.Views
         {
             PipesDGW.ContextMenuStrip = contextMenuStrip1;
         }
+
         private void BindLocalEvents()
         {
             DeleteToolStripMenuItem.Click += delegate { DeletePipe?.Invoke(this, EventArgs.Empty); };
-            //ExitToolStripMenuItem.Click += delegate { Application.Exit(); };
-            //PlanFactToolStripMenuItem.Click += PlanFactToolStripMenuItem_Click;
-            //PlanToolStripMenuItem.Click += PlanToolStripMenuItem_Click;
+            AddPipeBtn.Click += delegate { AddPipe?.Invoke(this, EventArgs.Empty); };
+
         }
+
         private void PipesDGW_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             DataGridView grd = sender as DataGridView;

@@ -14,9 +14,9 @@ namespace Pipe.DTO
         public int Number { get; set; }
         public string IsDefective { get; set; }
         public string SteelName { get; set; }
-        public int Diameter { get; set; }
-        public int Thickness { get; set; }
-        public int Length { get; set; }
-        public int Weight { get; set; }
+        public decimal Diameter { get; set; }
+        public decimal Thickness { get; set; }
+        public decimal Length { get; set; }
+        public decimal Weight { get; set; }
     }
 }

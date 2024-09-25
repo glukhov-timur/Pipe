@@ -25,8 +25,15 @@ namespace Pipe.Presenters
             _mainForm.PipesBindingSource = _pipesBindingSource;
 
             _mainForm.DeletePipe += DeleteSelectedPipe;
+            _mainForm.AddPipe += AddNewPipe;
 
             LoadData();
+        }
+
+        private void AddNewPipe(object sender, EventArgs e)
+        {
+            IAddOrEditPipe addOrEditForm = new AddOrEditPipe(ModalFormType.Add, null, _mainRepo.GetAllSteels());
+            addOrEditForm.ShowDialog();
         }
 
         private void DeleteSelectedPipe(object sender, EventArgs e)
