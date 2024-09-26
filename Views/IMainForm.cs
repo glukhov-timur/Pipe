@@ -13,6 +13,7 @@ namespace Pipe.Views
 
         event EventHandler DeletePipe;
         event EventHandler AddPipe;
+        event EventHandler UpdatePipe;
 
         int TotalCount { set; }
         int NonDefectiveCount { set; }

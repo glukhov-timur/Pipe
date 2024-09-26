@@ -13,7 +13,9 @@ namespace Pipe.DTO
         public long PipeId { get; set; }
         public int Number { get; set; }
         public string IsDefective { get; set; }
+        public bool IsDefectiveBool { get; set; }
         public string SteelName { get; set; }
+        public long SteelNameId { get; set; }
         public decimal Diameter { get; set; }
         public decimal Thickness { get; set; }
         public decimal Length { get; set; }

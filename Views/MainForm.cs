@@ -15,6 +15,7 @@ namespace Pipe.Views
     {
         public event EventHandler DeletePipe;
         public event EventHandler AddPipe;
+        public event EventHandler UpdatePipe;
 
         #region properties
         private BindingSource _pipesBindingSource;
@@ -54,6 +55,7 @@ namespace Pipe.Views
         private void BindLocalEvents()
         {
             DeleteToolStripMenuItem.Click += delegate { DeletePipe?.Invoke(this, EventArgs.Empty); };
+            UpdateToolStripMenuItem.Click += delegate { UpdatePipe?.Invoke(this, EventArgs.Empty); };
             AddPipeBtn.Click += delegate { AddPipe?.Invoke(this, EventArgs.Empty); };
 
         }

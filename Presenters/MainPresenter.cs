@@ -26,7 +26,22 @@ namespace Pipe.Presenters
 
             _mainForm.DeletePipe += DeleteSelectedPipe;
             _mainForm.AddPipe += AddNewPipe;
+            _mainForm.UpdatePipe += UpdatePipe;
 
+            LoadData();
+        }
+
+        private void UpdatePipe(object sender, EventArgs e)
+        {
+            var selectedPipe = (PipeDTO)_pipesBindingSource.Current;
+            IAddOrEditPipe addOrEditForm = new AddOrEditPipe(ModalFormType.Update, selectedPipe, _mainRepo.GetAllSteels());
+            addOrEditForm.SavePipe += AddOrEditForm_SavePipe_Update;
+            addOrEditForm.ShowDialog();
+        }
+
+        private void AddOrEditForm_SavePipe_Update(object sender, EventArgs e)
+        {
+            _mainRepo.UpdatePipe(((IAddOrEditPipe)sender).NewPipe);
             LoadData();
         }
 

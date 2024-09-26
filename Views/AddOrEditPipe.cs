@@ -49,6 +49,7 @@ namespace Pipe.Views
             {
                 case ModalFormType.Add:
                     ActionTypeLabel.Text = "Добавить трубу";
+                    this.Text = "Добавить трубу";
                     break;
                 case ModalFormType.Update:
                     InitPipeEdit();
@@ -68,7 +69,14 @@ namespace Pipe.Views
         private void InitPipeEdit()
         {
             ActionTypeLabel.Text = "Изменить трубу";
-            //TODO: insert data in textboxes
+            this.Text = "Изменить трубу";
+            IsDefectedCheckBox.Checked = _pipeDTO.IsDefectiveBool;
+            SteelTypeComboBox.SelectedValue = _pipeDTO.SteelNameId;
+            NumberLabel.Text = _pipeDTO.Number.ToString();
+            DiameterTB.Text = _pipeDTO.Diameter.ToString();
+            ThicknessTB.Text = _pipeDTO.Thickness.ToString();
+            LengthTB.Text = _pipeDTO.Length.ToString();
+            WeightTB.Text = _pipeDTO.Weight.ToString();
         }
 
         #region keypress_validating
@@ -123,6 +131,7 @@ namespace Pipe.Views
             {
                 NewPipe = new PipeModel()
                 {
+                    Id = (_modalFormType == ModalFormType.Update) ? _pipeDTO.PipeId : 0,
                     Number = number,
                     IsDefective = IsDefectedCheckBox.Checked,
                     SteelId = ((Steel)SteelTypeComboBox.SelectedItem).Id,
@@ -135,7 +144,6 @@ namespace Pipe.Views
             }
             else
             {
-                MessageBox.Show("Ошибка ввода", "Внимание");
                 return false;
             }
         }
@@ -146,6 +154,10 @@ namespace Pipe.Views
             {
                 SavePipe?.Invoke(this, EventArgs.Empty);
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ошибка ввода", "Внимание");
             }
         }
     }

@@ -55,6 +55,8 @@
             this.Length = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PipeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsDefectiveBool = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SteelNameId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PipesDGW)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,6 +67,7 @@
             // 
             this.PipesDGW.AllowUserToAddRows = false;
             this.PipesDGW.AllowUserToDeleteRows = false;
+            this.PipesDGW.AllowUserToResizeRows = false;
             this.PipesDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PipesDGW.BackgroundColor = System.Drawing.Color.White;
             this.PipesDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -76,7 +79,9 @@
             this.Thickness,
             this.Length,
             this.Weight,
-            this.PipeId});
+            this.PipeId,
+            this.IsDefectiveBool,
+            this.SteelNameId});
             this.PipesDGW.Location = new System.Drawing.Point(12, 66);
             this.PipesDGW.Name = "PipesDGW";
             this.PipesDGW.ReadOnly = true;
@@ -301,6 +306,24 @@
             this.PipeId.ReadOnly = true;
             this.PipeId.Visible = false;
             // 
+            // IsDefectiveBool
+            // 
+            this.IsDefectiveBool.DataPropertyName = "IsDefectiveBool";
+            this.IsDefectiveBool.HeaderText = "IsDefectiveBool";
+            this.IsDefectiveBool.MinimumWidth = 6;
+            this.IsDefectiveBool.Name = "IsDefectiveBool";
+            this.IsDefectiveBool.ReadOnly = true;
+            this.IsDefectiveBool.Visible = false;
+            // 
+            // SteelNameId
+            // 
+            this.SteelNameId.DataPropertyName = "SteelNameId";
+            this.SteelNameId.HeaderText = "SteelNameId";
+            this.SteelNameId.MinimumWidth = 6;
+            this.SteelNameId.Name = "SteelNameId";
+            this.SteelNameId.ReadOnly = true;
+            this.SteelNameId.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -355,5 +378,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Length;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
         private System.Windows.Forms.DataGridViewTextBoxColumn PipeId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsDefectiveBool;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SteelNameId;
     }
 }
