@@ -1,4 +1,5 @@
 ﻿using Pipe.DTO;
+using Pipe.Presenters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Pipe.Views
         public event EventHandler DeletePipe;
         public event EventHandler AddPipe;
         public event EventHandler UpdatePipe;
+        public event EventHandler RefreshTable;
 
         #region properties
         private BindingSource _pipesBindingSource;
@@ -32,10 +34,26 @@ namespace Pipe.Views
             }
         }
 
+        private BindingSource _filterBindingSource;
+        public BindingSource FilterBindingSource
+        {
+            get
+            {
+                return _filterBindingSource;
+            }
+            set
+            {
+                _filterBindingSource = value;
+                FilterCB.DataSource = _filterBindingSource;
+            }
+        }
+
         public int TotalCount { set => TotalCountLabel.Text = value.ToString(); }
         public int NonDefectiveCount { set => NonDefectiveCountLabel.Text = value.ToString(); }
         public int DefectiveCount { set => DefectiveCountLabel.Text = value.ToString(); }
         public decimal TotalWeight { set => TotalWeightLabel.Text = value.ToString(); }
+
+        public Filter SelectedFilter { get; private set; }
 
         #endregion
         public MainForm()
@@ -57,7 +75,11 @@ namespace Pipe.Views
             DeleteToolStripMenuItem.Click += delegate { DeletePipe?.Invoke(this, EventArgs.Empty); };
             UpdateToolStripMenuItem.Click += delegate { UpdatePipe?.Invoke(this, EventArgs.Empty); };
             AddPipeBtn.Click += delegate { AddPipe?.Invoke(this, EventArgs.Empty); };
-
+            FilterCB.SelectedIndexChanged += delegate 
+            {
+                SelectedFilter = (Filter)FilterCB.SelectedItem;
+                RefreshTable?.Invoke(this, EventArgs.Empty); 
+            };
         }
 
         private void PipesDGW_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)

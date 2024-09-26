@@ -12,6 +12,7 @@ namespace Pipe.Repo
     public interface IMainRepo
     {
         IEnumerable<PipeDTO> GetAllPipes();
+        IEnumerable<PipeDTO> GetAllPipes(bool isDefective);
         void DeletePipe(long id);
         IEnumerable<Steel> GetAllSteels();
         void AddPipe(PipeModel pipeModel);
@@ -26,6 +27,30 @@ namespace Pipe.Repo
             using (var db = new PipeContext())
             {
                 var allPipes = db.Pipes
+                                 .Select(item => new PipeDTO()
+                                 {
+                                     PipeId = item.Id,
+                                     Number = item.Number,
+                                     IsDefective = (item.IsDefective) ? "Брак" : "Годная",
+                                     SteelName = item.Steel.SteelName,
+                                     Diameter = item.Diameter,
+                                     Thickness = item.Thickness,
+                                     Length = item.Length,
+                                     Weight = item.Weight,
+                                     IsDefectiveBool = item.IsDefective,
+                                     SteelNameId = item.SteelId,
+                                 })
+                                 .ToList();
+                return allPipes;
+            }
+        }
+
+        public IEnumerable<PipeDTO> GetAllPipes(bool isDefective)
+        {
+            using (var db = new PipeContext())
+            {
+                var allPipes = db.Pipes
+                                 .Where(item => item.IsDefective == isDefective)
                                  .Select(item => new PipeDTO()
                                  {
                                      PipeId = item.Id,

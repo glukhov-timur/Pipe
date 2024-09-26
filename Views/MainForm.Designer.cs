@@ -57,6 +57,8 @@
             this.PipeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsDefectiveBool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SteelNameId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.FilterCB = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.PipesDGW)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -324,11 +326,30 @@
             this.SteelNameId.ReadOnly = true;
             this.SteelNameId.Visible = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(739, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 16);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Фильтр:";
+            // 
+            // FilterCB
+            // 
+            this.FilterCB.FormattingEnabled = true;
+            this.FilterCB.Location = new System.Drawing.Point(804, 36);
+            this.FilterCB.Name = "FilterCB";
+            this.FilterCB.Size = new System.Drawing.Size(142, 24);
+            this.FilterCB.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(958, 610);
+            this.Controls.Add(this.FilterCB);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.AddPipeBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -338,7 +359,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PipesDGW);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "ТМК++. Тестовое задание";
             ((System.ComponentModel.ISupportInitialize)(this.PipesDGW)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -380,5 +401,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PipeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsDefectiveBool;
         private System.Windows.Forms.DataGridViewTextBoxColumn SteelNameId;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox FilterCB;
     }
 }
