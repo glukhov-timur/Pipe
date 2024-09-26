@@ -59,10 +59,15 @@
             this.SteelNameId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.FilterCB = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PipesDGW)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PipesDGW
@@ -343,11 +348,49 @@
             this.FilterCB.Size = new System.Drawing.Size(142, 24);
             this.FilterCB.TabIndex = 7;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 16);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "- брак";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(530, 551);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 16);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Обозначения";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Location = new System.Drawing.Point(530, 564);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(242, 34);
+            this.panel3.TabIndex = 10;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Red;
+            this.panel4.Location = new System.Drawing.Point(15, 9);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(15, 15);
+            this.panel4.TabIndex = 11;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(958, 610);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.FilterCB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.AddPipeBtn);
@@ -366,6 +409,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,5 +448,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SteelNameId;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox FilterCB;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
