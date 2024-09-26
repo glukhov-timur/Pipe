@@ -33,7 +33,14 @@ namespace Pipe.Presenters
         private void AddNewPipe(object sender, EventArgs e)
         {
             IAddOrEditPipe addOrEditForm = new AddOrEditPipe(ModalFormType.Add, null, _mainRepo.GetAllSteels());
+            addOrEditForm.SavePipe += AddOrEditForm_SavePipe;
             addOrEditForm.ShowDialog();
+        }
+
+        private void AddOrEditForm_SavePipe(object sender, EventArgs e)
+        {
+            _mainRepo.AddPipe(((IAddOrEditPipe)sender).NewPipe);
+            LoadData();
         }
 
         private void DeleteSelectedPipe(object sender, EventArgs e)

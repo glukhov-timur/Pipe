@@ -23,6 +23,7 @@ namespace Pipe.Views
         DialogResult ShowDialog();
 
         PipeModel NewPipe { get; }
+        event EventHandler SavePipe;
     }
 
     public partial class AddOrEditPipe : Form, IAddOrEditPipe
@@ -36,7 +37,7 @@ namespace Pipe.Views
         public AddOrEditPipe(ModalFormType modalFormType, PipeDTO pipeDTO, IEnumerable<Steel> steels)
         {
             InitializeComponent();
-
+            InitStyle();
             _modalFormType = modalFormType;
             _pipeDTO = pipeDTO;
 
@@ -56,6 +57,12 @@ namespace Pipe.Views
                     this.Close();
                     break;
             }         
+        }
+
+        private void InitStyle()
+        {
+            this.MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void InitPipeEdit()
@@ -138,7 +145,7 @@ namespace Pipe.Views
             if (Validate())
             {
                 SavePipe?.Invoke(this, EventArgs.Empty);
-                //TODO: save model in repository
+                this.Close();
             }
         }
     }

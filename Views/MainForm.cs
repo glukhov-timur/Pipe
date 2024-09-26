@@ -46,6 +46,8 @@ namespace Pipe.Views
 
         private void Init()
         {
+            this.MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             PipesDGW.ContextMenuStrip = contextMenuStrip1;
         }
 

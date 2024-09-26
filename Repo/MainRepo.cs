@@ -14,6 +14,7 @@ namespace Pipe.Repo
         IEnumerable<PipeDTO> GetAllPipes();
         void DeletePipe(long id);
         IEnumerable<Steel> GetAllSteels();
+        void AddPipe(PipeModel pipeModel);
     }
 
     public class MainRepo : IMainRepo
@@ -49,6 +50,15 @@ namespace Pipe.Repo
                 db.Pipes.Remove(pipe);
                 db.SaveChanges();
             }            
+        }
+
+        public void AddPipe(PipeModel pipeModel)
+        {
+            using (var db = new PipeContext())
+            {
+                db.Pipes.Add(pipeModel);
+                db.SaveChanges();
+            }
         }
 
         public IEnumerable<Steel> GetAllSteels()
