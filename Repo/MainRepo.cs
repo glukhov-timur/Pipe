@@ -39,6 +39,8 @@ namespace Pipe.Repo
                                      Weight = item.Weight,
                                      IsDefectiveBool = item.IsDefective,
                                      SteelNameId = item.SteelId,
+                                     PacketId = item.PacketId,
+                                     PacketNumber = item.Packet.PacketNumber,
                                  })
                                  .ToList();
                 return allPipes;

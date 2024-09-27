@@ -20,5 +20,8 @@ namespace Pipe.Models.Db
         public decimal Thickness { get; set; }
         public decimal Length { get; set; }
         public decimal Weight { get; set; }
+        public long? PacketId { get; set; }
+        [ForeignKey("PacketId")]
+        public Packet Packet { get; set; }
     }
 }

@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\PipeDTO.cs" />
+    <Compile Include="Models\Db\Packet.cs" />
     <Compile Include="Models\Db\PipeModel.cs" />
     <Compile Include="Models\Db\PipeContext.cs" />
     <Compile Include="Models\Db\Steel.cs" />

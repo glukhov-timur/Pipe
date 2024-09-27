@@ -12,6 +12,8 @@ namespace Pipe.Models.Db
     {
         public DbSet<PipeModel> Pipes { get; set; }
         public DbSet<Steel> Steels { get; set; }
+        public DbSet<Packet> Packets { get; set; }
+
         public PipeContext()
         {
             //Database.EnsureDeleted();
@@ -32,6 +34,12 @@ namespace Pipe.Models.Db
                 new Steel() { Id = 7, SteelName = "17Г1С" },
                 new Steel() { Id = 8, SteelName = "08Г2С" },
                 new Steel() { Id = 9, SteelName = "12ГН2МФАЮ" }
+                );
+
+            modelBuilder.Entity<Packet>().HasData(
+                new Packet() { Id = 1, PacketNumber = 1234, PacketDate = DateTime.Now.AddDays(-3) },
+                new Packet() { Id = 2, PacketNumber = 1235, PacketDate = DateTime.Now.AddDays(-2) },
+                new Packet() { Id = 3, PacketNumber = 1236, PacketDate = DateTime.Now.AddDays(-1) }
                 );
 
             modelBuilder.Entity<PipeModel>().HasData(

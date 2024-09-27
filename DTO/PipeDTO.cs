@@ -20,5 +20,7 @@ namespace Pipe.DTO
         public decimal Thickness { get; set; }
         public decimal Length { get; set; }
         public decimal Weight { get; set; }
+        public long? PacketId { get; set; }
+        public int? PacketNumber { get; set; }
     }
 }
